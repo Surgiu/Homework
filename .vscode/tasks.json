@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build LaTeX",
+            "type": "shell",
+            "command": "pdflatex",
+            "args": [
+                "${fileBasename}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Compile the current LaTeX file to PDF"
+        },
+        {
+            "label": "View PDF",
+            "type": "shell",
+            "command": "open",
+            "args": [
+                "${fileBasename}.pdf"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [],
+            "detail": "Open the generated PDF file"
+        }
+    ]
+}

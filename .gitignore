@@ -15,7 +15,7 @@
 #*.bib
 
 # PDF output
-*.pdf
+# *.pdf
 
 # Temporary files
 *.tmp
@@ -25,7 +25,7 @@
 *.backup
 
 # VSCode files
-.vscode/
+# .vscode/
 
 # LaTeX Workshop files
 *.fdb_latexmk
