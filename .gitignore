@@ -1,0 +1,40 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.synctex
+
+# BibTeX files (you might want to keep these, so comment out if necessary)
+#*.bib
+
+# PDF output
+*.pdf
+
+# Temporary files
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# VSCode files
+.vscode/
+
+# LaTeX Workshop files
+*.fdb_latexmk
+*.fls
+*.run.xml
+
+# Other LaTeX-related files
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.ps
