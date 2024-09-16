@@ -130,27 +130,27 @@
 
     //使用 SumatraPDF 预览编译好的PDF文件
     // 设置VScode内部查看生成的pdf文件
-    "latex-workshop.view.pdf.viewer": "external",
+    //"latex-workshop.view.pdf.viewer": "external",
     // PDF查看器用于在\ref上的[View on PDF]链接
-    "latex-workshop.view.pdf.ref.viewer": "auto",
+    //"latex-workshop.view.pdf.ref.viewer": "auto",
     // 使用外部查看器时要执行的命令。此功能不受官方支持。
-    "latex-workshop.view.pdf.external.viewer.command": "C:/Users/DELL/AppData/Local/SumatraPDF.exe", // 注意修改路径
+    //"latex-workshop.view.pdf.external.viewer.command": "C:/Users/DELL/AppData/Local/SumatraPDF.exe", // 注意修改路径
     // 使用外部查看器时，latex-workshop.view.pdf.external.view .command的参数。此功能不受官方支持。%PDF%是用于生成PDF文件的绝对路径的占位符。
-    "latex-workshop.view.pdf.external.viewer.args": [
-        "%PDF%"
-    ],
+    //"latex-workshop.view.pdf.external.viewer.args": [
+    //    "%PDF%"
+    //],
     // 将synctex转发到外部查看器时要执行的命令。此功能不受官方支持。
-    "latex-workshop.view.pdf.external.synctex.command": "C:/Users/DELL/AppData/Local/SumatraPDF.exe", // 注意修改路径
+    //"latex-workshop.view.pdf.external.synctex.command": "C:/Users/DELL/AppData/Local/SumatraPDF.exe", // 注意修改路径
     // latex-workshop.view.pdf.external.synctex的参数。当同步到外部查看器时。%LINE%是行号，%PDF%是生成PDF文件的绝对路径的占位符，%TEX%是触发syncTeX的扩展名为.tex的LaTeX文件路径。
-    "latex-workshop.view.pdf.external.synctex.args": [
-        "-forward-search",
-        "%TEX%",
-        "%LINE%",
-        "-reuse-instance",
-        "-inverse-search",
-        "\"C:/Users/DELL/AppData/Local/Programs/Microsoft VS Code/Code.exe\" \"C:/Users/DELL/AppData/Local/Programs/Microsoft VS Code/resources/app/out/cli.js\" -r -g \"%f:%l\"", // 注意修改路径
-        "%PDF%"
-    ],
+    // "latex-workshop.view.pdf.external.synctex.args": [
+    //     "-forward-search",
+    //     "%TEX%",
+    //     "%LINE%",
+    //     "-reuse-instance",
+    //     "-inverse-search",
+    //     "\"C:/Users/DELL/AppData/Local/Programs/Microsoft VS Code/Code.exe\" \"C:/Users/DELL/AppData/Local/Programs/Microsoft VS Code/resources/app/out/cli.js\" -r -g \"%f:%l\"", // 注意修改路径
+    //     "%PDF%"
+    // ],
 
 
 
@@ -158,7 +158,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
-    "editor.fontSize": 19,
+    "editor.fontSize": 18,
     "editor.fontFamily": "Fira Code, 'Consolas', monospace",
     "editor.cursorStyle": "line",
     "editor.defaultFormatter": "James-Yu.latex-workshop",

@@ -20,56 +20,57 @@
 \[G(s) = \frac{1}{s^2+2s+6}\]
 
 ODE:
-\[y'' + 2y' + 6y = u(t)\]
+\[y''(t) + 2y'(t) + 6y(t) = u(t)\]
 
-let $x_1 = y, x_2 = y'$, then we have
+let $x_1(t) = y(t), x_2(t) = y'(t)$, then we have
 
-\begin{cases}
-    x_1' = x_2 \\
-    x_2' = -2x_2 - 6x_1 + u(t)
+$\begin{cases}
+    x_1'(t) = x_2(t) \\
+    x_2'(t) = -2x_2(t) - 6x_1(t) + u(t)
 \end{cases}
+$
 
 so the state space representation is
 \begin{equation}
     \begin{aligned}
         \begin{bmatrix}
-            {x_1} \\
-            {x_2}
+            {x_1(t)} \\
+            {x_2(t)}
         \end{bmatrix}' & = \begin{bmatrix}
                                0  & 1  \\
                                -6 & -2
                            \end{bmatrix} \begin{bmatrix}
-                                             x_1 \\
-                                             x_2
+                                             x_1(t) \\
+                                             x_2(t)
                                          \end{bmatrix} + \begin{bmatrix}
                                                              0 \\
                                                              1
                                                          \end{bmatrix} u(t) \\
-        y               & = \begin{bmatrix}
+        y(t)               & = \begin{bmatrix}
                                 1 & 0
                             \end{bmatrix} \begin{bmatrix}
-                                              x_1 \\
-                                              x_2
+                                              x_1(t) \\
+                                              x_2(t)
                                           \end{bmatrix}
     \end{aligned}
 \end{equation}
 
 thus
 $
-    A &=
+    A =
     \begin{bmatrix}
         0  & 1  \\
         -6 & -2
     \end{bmatrix},
-    B &=
+    B =
     \begin{bmatrix}
         0 \\
         1
     \end{bmatrix},
-    C &= \begin{bmatrix}
+    C = \begin{bmatrix}
         1 & 0
     \end{bmatrix},
-    D&=
+    D =
     \begin{bmatrix}
         0
     \end{bmatrix}
@@ -77,20 +78,20 @@ $
 
 \subsection{Problem b}
 let $G_1(s)=\frac{1}{s^2+2s+6}=\frac{W(s)}{U(s)}$, $G_2(s)=s+3=\frac{Y(s)}{W(s)}$, then
-\[G(s) & = G_1(s)G_2(s) \]
+\[G(s)  = G_1(s)G_2(s) \]
 ODE:
 \begin{equation}
     \begin{aligned}
-        w'' + w' + w & = u(t)    \\
-        y            & = w' + 3w
+        w''(t) + w'(t) + w(t) & = u(t)    \\
+        y(t)            & = w'(t) + 3w(t)
     \end{aligned}
 \end{equation}
-let $ x_1 = w, x_2 = w'$, then we have
+let $ x_1(t) = w(t), x_2(t) = w'(t)$, then we have
 \begin{equation}
     \begin{aligned}
         \begin{bmatrix}
-            {x_1} \\
-            {x_2}
+            {x_1(t)} \\
+            {x_2(t)}
         \end{bmatrix}' & = \begin{bmatrix}
                                0  & 1  \\
                                -6 & -2
@@ -104,35 +105,35 @@ let $ x_1 = w, x_2 = w'$, then we have
         y               & = \begin{bmatrix}
                                 1 & 0
                             \end{bmatrix} \begin{bmatrix}
-                                              x_1 \\
-                                              x_2
+                                              x_1(t) \\
+                                              x_2(t)
                                           \end{bmatrix}
     \end{aligned}
 \end{equation}
 and
-\[ y = \begin{bmatrix}
+\[ y(t) = \begin{bmatrix}
         3 & 1
     \end{bmatrix} \begin{bmatrix}
-                      x_1 \\
-                      x_2
+                      x_1(t) \\
+                      x_2(t)
                   \end{bmatrix} \]
 
 thus
 $
-    A &=
+    A =
     \begin{bmatrix}
         0  & 1  \\
         -6 & -2
     \end{bmatrix},
-    B &=
+    B =
     \begin{bmatrix}
         0 \\
         1
     \end{bmatrix},
-    C &= \begin{bmatrix}
+    C = \begin{bmatrix}
         3 & 1
     \end{bmatrix},
-    D&=
+    D =
     \begin{bmatrix}
         0
     \end{bmatrix}
@@ -141,7 +142,22 @@ $
 \subsection{Problem c}
 similar to (a), we have
 $
-A &= 
+A = \begin{bmatrix}
+    0  & 1  \\
+    -6 & -2
+\end{bmatrix},
+B = \begin{bmatrix}
+    0 \\
+    1
+\end{bmatrix},
+C = \begin{bmatrix}
+    1 & 0
+\end{bmatrix},
+D = \begin{bmatrix}
+    0
+\end{bmatrix}
+$
+
 
 \section{Problem 2}
 
