@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{CJKutf8}
 
 \graphicspath{images/} %TODO
 
@@ -164,14 +165,102 @@ $
 similar to (b), we have
 $
 A = \begin{bmatrix}
-    
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    -66 & -44 & -11 & -10 \\
+\end{bmatrix},
+B= \begin{bmatrix}
+    0 &0 &0 &1
+\end{bmatrix},
+C= \begin{bmatrix}
+    6 & 4 & 1 & 0
+\end{bmatrix},
+D = \begin{bmatrix}
+    0
 \end{bmatrix}
 $
 
+\section{AE1.11}
 
-\section{Problem 2}
+suppose A is an $m \times m$ matrix, B is an $n \times n$ matrix.
+to prove
+\[
+\begin{bmatrix}
+    A & D \\
+    C & B
+\end{bmatrix}^{-1} = \begin{bmatrix}
+    A^{-1}+E\Delta^{-1}F & -E\Delta^{-1} \\
+    -\Delta^{-1}F & \Delta^{-1}
+\end{bmatrix}
+\], we need to prove that
+\[
+    \begin{bmatrix}
+        A & D \\
+        C & B
+    \end{bmatrix} \begin{bmatrix}
+        A^{-1}+E\Delta^{-1}F & -E\Delta^{-1} \\
+        -\Delta^{-1}F & \Delta^{-1}
+    \end{bmatrix} = \begin{bmatrix}
+        I_m & 0 \\
+        0 & I_n
+    \end{bmatrix}
+\]
 
-\section{Problem 3}
+first, consider the left-top block:
+\[
+    \begin{aligned}
+        A(A^{-1}+E\Delta^{-1}F) + D(-\Delta^{-1}F) & = AA^{-1} + AE\Delta^{-1}F - D\Delta^{-1}F \\
+                                                     & = I_m + AE\Delta^{-1}F - D\Delta^{-1}F
+    \end{aligned}
+\]
+since $E = A^{-1}D$, we have $AE\Delta^{-1}F = D\Delta^{-1}F$, thus we get $I_m$.
+
+second, consider the right-top block:
+\[
+    \begin{aligned}
+        A(-E\Delta^{-1}) + D(\Delta^{-1}) & = -AE\Delta^{-1} + D\Delta^{-1} \\
+                                          & = -D\Delta^{-1} + D\Delta^{-1} \\
+                                          & = 0
+    \end{aligned}
+\]
+
+third, consider the left-bottom block:
+\[
+    \begin{aligned}
+        C(A^{-1}+E\Delta^{-1}F) + B(-\Delta^{-1}F) & = CA^{-1} + CE\Delta^{-1}F - B\Delta^{-1}F \\
+                                                & = CA^{-1} + (CE - B)\Delta^{-1}F \\
+                                                & = CA^{-1} + (B - CA^{-1}D)\Delta^{-1}F \\
+                                                & = CA^{-1} - \Delta \Delta^{-1} F \\
+                                                & = CA^{-1} - F \\
+                                                & = 0
+    \end{aligned}
+\]
+since $E = A^{-1}D$, we have $CE\Delta^{-1}F = B\Delta^{-1}F$, thus we get $0$.
+
+fourth, consider the right-bottom block:
+\[
+    \begin{aligned}
+        C(-E\Delta^{-1}) + B(\Delta^{-1}) & = -CA^{-1}D\Delta^{-1} + B\Delta^{-1} \\
+                                          & = (B - CA^{-1}D)\Delta^{-1} \\
+                                          & = \Delta^{-1}\Delta \\
+                                        & = I_n
+    \end{aligned}
+\]
+
+thus we have proved that
+\[
+    \begin{bmatrix}
+        A & D \\
+        C & B
+    \end{bmatrix}^{-1} = \begin{bmatrix}
+        A^{-1}+E\Delta^{-1}F & -E\Delta^{-1} \\
+        -\Delta^{-1}F & \Delta^{-1}
+    \end{bmatrix}
+\]
+Q.E.D.
+
+\section{AE1.12}
 
 \section{Problem 4}
 
