@@ -1,0 +1,32 @@
+name: LaTeX CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image
+      run: docker build -t my-latex-project .
+
+    - name: Run Docker container
+      run: docker run --rm -v $(pwd):/workspace my-latex-project
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled-pdf
+        path: main.pdf
