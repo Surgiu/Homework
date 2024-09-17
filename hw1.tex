@@ -261,6 +261,66 @@ thus we have proved that
 Q.E.D.
 
 \section{AE1.12}
+notice that the Jordan block is an upper triangular matrix, 
+thus the inverse of a Jordan block is also an upper triangular matrix.
+
+so we suppose the inverse of the k-th Jordan block has the form of:
+\[
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1k} \\
+        0      & a_{22} & \cdots & a_{2k} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \cdots & a_{kk}
+
+    \end{bmatrix}
+\]
+from the fact that the multiplication of a Jordan block and its inverse is an identity matrix, we have
+\[
+    \begin{bmatrix}
+        \lambda & 1      & 0      & \cdots & 0      \\
+        0       & \lambda & 1      & \cdots & 0      \\
+        0       & 0      & \lambda & \cdots & 0      \\
+        \vdots  & \vdots & \vdots & \ddots & \vdots \\
+        0       & 0      & 0      & \cdots & \lambda
+    \end{bmatrix} \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1k} \\
+        0      & a_{22} & \cdots & a_{2k} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \cdots & a_{kk}
+    \end{bmatrix} = \begin{bmatrix}
+        1 & 0 & \cdots & 0 \\
+        0 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & 1
+    \end{bmatrix}
+\]
+thus we have
+\[
+    \begin{aligned}
+        a_{11} \lambda & = 1 \\
+        a_{12} \lambda & = 0 \\
+        a_{22} \lambda & = 1 \\
+        a_{13} \lambda & = 0 \\
+        a_{23} \lambda & = 0 \\
+        a_{33} \lambda & = 1 \\
+        \vdots         & = \vdots \\
+        a_{1k} \lambda & = 0 \\
+        a_{2k} \lambda & = 0 \\
+        \vdots         & = \vdots \\
+        a_{kk} \lambda & = 1
+    \end{aligned}
+\]
+
+thus the inverse of the k-th Jordan block is
+\[
+    \begin{bmatrix}
+        \frac{1}{\lambda} &- \frac{1}{\lambda^2} & -\frac{1}{\lambda^2} & \cdots & (-1)^{k-1} \frac{1}{\lambda^{k-1}} \\
+        0                 & \frac{1}{\lambda}     & -\frac{1}{\lambda^2} & \cdots & (-1)^{k-2} \frac{1}{\lambda^{k-1}} \\
+        0                 & 0                     & \frac{1}{\lambda}     & \cdots & (-1)^{k-3} \frac{1}{\lambda^{k-1}} \\
+        \vdots            & \vdots                & \vdots                & \ddots & \vdots \\
+        0                 & 0                     & 0                     & \cdots & \frac{1}{\lambda}
+    \end{bmatrix}
+\]
 
 \section{Problem 4}
 
