@@ -388,7 +388,39 @@ $,
  the matrix-vector form is 
 \[
     \begin{bmatrix}
-        
+        m_1 & 0   & 0   \\
+        0   & m_2 & 0   \\
+        0   & 0   & m_3
+    \end{bmatrix}
+    \begin{bmatrix}
+        y_1''(t) \\
+        y_2''(t) \\
+        y_3''(t)
+    \end{bmatrix} +
+    \begin{bmatrix}
+        c_1+c_2+k_1+k_2 & -c_2-k_2       & 0              \\
+        -c_2-k_2        & c_2+c_3+k_2+k_3 & -c_3-k_3       \\
+        0               & -c_3-k_3        & c_3+c_4+k_3+k_4
+    \end{bmatrix}
+    \begin{bmatrix}
+        y_1'(t) \\
+        y_2'(t) \\
+        y_3'(t)
+    \end{bmatrix} +
+    \begin{bmatrix}
+        k_1 & -k_2 & 0   \\
+        -k_2 & k_2+k_3 & -k_3 \\
+        0   & -k_3 & k_3+k_4
+    \end{bmatrix}
+    \begin{bmatrix}
+        y_1(t) \\
+        y_2(t) \\
+        y_3(t)
+    \end{bmatrix} =
+    \begin{bmatrix}
+        u_1(t) \\
+        u_2(t) \\
+        u_3(t)
     \end{bmatrix}
 \]
 
