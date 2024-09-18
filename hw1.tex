@@ -102,13 +102,7 @@ let $ x_1(t) = w(t), x_2(t) = w'(t)$, then we have
                                          \end{bmatrix} + \begin{bmatrix}
                                                              0 \\
                                                              1
-                                                         \end{bmatrix} u(t) \\
-        y               & = \begin{bmatrix}
-                                1 & 0
-                            \end{bmatrix} \begin{bmatrix}
-                                              x_1(t) \\
-                                              x_2(t)
-                                          \end{bmatrix}
+                                                         \end{bmatrix} u(t)
     \end{aligned}
 \end{equation}
 and
@@ -261,6 +255,8 @@ thus we have proved that
 Q.E.D.
 
 \section{AE1.12}
+first, consider $\lambda \neq 0$ :
+
 notice that the Jordan block is an upper triangular matrix, 
 thus the inverse of a Jordan block is also an upper triangular matrix.
 
@@ -298,30 +294,102 @@ thus we have
 \[
     \begin{aligned}
         a_{11} \lambda & = 1 \\
-        a_{12} \lambda & = 0 \\
+        a_{11} + \lambda a_{12} & = 0 \\
+        a_{12} + \lambda a_{13} & = 0 \\
+        \vdots & \\
         a_{22} \lambda & = 1 \\
-        a_{13} \lambda & = 0 \\
-        a_{23} \lambda & = 0 \\
-        a_{33} \lambda & = 1 \\
-        \vdots         & = \vdots \\
-        a_{1k} \lambda & = 0 \\
-        a_{2k} \lambda & = 0 \\
-        \vdots         & = \vdots \\
-        a_{kk} \lambda & = 1
+        a_{22} + \lambda a_{23} &= 0 \\
+        a_{23} + \lambda a_{24} &= 0 \\
+        \vdots & \\
+        a_{k-1 k-1} \lambda & = 1 \\
+        a_{k-1 k-1} + \lambda a_{k-1 k} &= 0 \\
     \end{aligned}
 \]
 
 thus the inverse of the k-th Jordan block is
 \[
     \begin{bmatrix}
-        \frac{1}{\lambda} &- \frac{1}{\lambda^2} & -\frac{1}{\lambda^2} & \cdots & (-1)^{k-1} \frac{1}{\lambda^{k-1}} \\
-        0                 & \frac{1}{\lambda}     & -\frac{1}{\lambda^2} & \cdots & (-1)^{k-2} \frac{1}{\lambda^{k-1}} \\
-        0                 & 0                     & \frac{1}{\lambda}     & \cdots & (-1)^{k-3} \frac{1}{\lambda^{k-1}} \\
+        \frac{1}{\lambda} &- \frac{1}{\lambda^2} & \frac{1}{\lambda^3} & \cdots & (-1)^{k+1} \frac{1}{\lambda^{k}} \\
+        0                 & \frac{1}{\lambda}     & -\frac{1}{\lambda^2} & \cdots & (-1)^{k} \frac{1}{\lambda^{k-1}} \\
+        0                 & 0                     & \frac{1}{\lambda}     & \cdots & (-1)^{k+1} \frac{1}{\lambda^{k-2}} \\
         \vdots            & \vdots                & \vdots                & \ddots & \vdots \\
         0                 & 0                     & 0                     & \cdots & \frac{1}{\lambda}
     \end{bmatrix}
 \]
 
-\section{Problem 4}
+if $\lambda = 0$, then the inverse does not exist.
+
+\section{CME1.4}
+the corresponding characteristic equation is
+\[
+\begin{aligned}
+    w^{(4)}(t) + 6w^{(3)}(t) + 86w''(t) + 176w'(t) + 680w(t) = u(t) \\
+    y(t) = 100w(t) + 20w'(t)+10w''(t)
+\end{aligned}
+\]
+
+let$H_1(s)=\frac{W(s)}{U(s)}, H_2(s) = \frac{Y(s)}{W(s)}$,
+then 
+\[
+    H_1(s) = \frac{1}{s^4+6s^3+86s^2+176s+680}
+\]
+\[ 
+    H_2(s) = 10s^2+20s+100
+\]
+so the overal transfer function is
+\[
+    H(s) = H_1(s)H_2(2)= \frac{10s^2+20s+100}{s^4+6s^3+86s^2+176s+680}
+\]
+
+\section{CE1.1}
+\subsection{Problem a}
+set the positive direction to be "right",
+according to Newton's second law,
+% \[ 
+% u_1(t)+u_2(t)+u_3(t) = k_1 y_1(t)+k_4 y_3(t) 
+% +c_1 y_1'(t)+c_4 y_3'(t)
+% +m_1 y_1''(t)+m_2 y_2''(t)+m_3 y_3''(t)
+% \]
+
+\[
+    \begin{aligned}
+        u_1(t) &= k_1 y_1(t)+k_2(y_1(t)-y_2(t))
+        +c_1 y_1'(t)+c_2(y_1(t)-y_2(t))
+        +m_1 y_1''(t) \\
+        u_2(t) &= k_2(y_2(t)-y_1(t))+k_3(y_2(t)-y_3(t))
+        +c_2(y_2'(t)-y_1'(t))+c_2(y_2'(t)-y_3'(t))
+        +m_2 y_2''(t) \\
+        u_3(t) &= k_3(y_3(t)-y_2(t))+k_4(y_3(t)-y_4(t))
+        +c_3(y_3'(t)-y_2'(t))+c_4(y_4'(t))
+        +m_3 y_3''(t) \\
+    \end{aligned}
+\]
+let 
+$
+    y(t) = 
+    \begin{bmatrix}
+        y_1(t) \\
+        y_2(t) \\
+        y_3(t)
+    \end{bmatrix},
+    y'(t) = 
+    \begin{bmatrix}
+        y_1'(t) \\
+        y_2'(t) \\
+        y_3'(t)
+    \end{bmatrix},
+    y''(t) = 
+    \begin{bmatrix}
+        y_1''(t) \\
+        y_2''(t) \\
+        y_3''(t)
+    \end{bmatrix}
+$, 
+ the matrix-vector form is 
+\[
+    \begin{bmatrix}
+        
+    \end{bmatrix}
+\]
 
 \end{document}
