@@ -156,7 +156,7 @@
     "editor.fontSize": 18,
     "editor.fontFamily": "Fira Code, 'Consolas', monospace",
     "editor.cursorStyle": "line",
-    "editor.defaultFormatter": "James-Yu.latex-workshop",
+    //"editor.defaultFormatter": "James-Yu.latex-workshop",
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },

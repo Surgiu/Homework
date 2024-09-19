@@ -187,8 +187,8 @@ to prove
     \mathbf{A} & \mathbf{D} \\
     \mathbf{\mathbf{C}} & \mathbf{B}
 \end{bmatrix}^{-1} = \begin{bmatrix}
-    \mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F} & -\mathbf{E}\Delta^{-1} \\
-    -\Delta^{-1}\mathbf{F} & \Delta^{-1}
+    \mathbf{A}^{-1}+\mathbf{E}\mathbf{\Delta}^{-1}\mathbf{F} & -\mathbf{E}\mathbf{\Delta}^{-1} \\
+    -\mathbf{\Delta}^{-1}\mathbf{F} & \mathbf{\Delta}^{-1}
 \end{bmatrix}
 \], 
 we need to prove that
@@ -197,8 +197,8 @@ we need to prove that
         \mathbf{A} & \mathbf{D} \\
         \mathbf{\mathbf{C}} & \mathbf{B}
     \end{bmatrix} \begin{bmatrix}
-        \mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F} & -\mathbf{E}\Delta^{-1} \\
-        -\Delta^{-1}\mathbf{F} & \Delta^{-1}
+        \mathbf{A}^{-1}+\mathbf{E}\mathbf{\Delta}^{-1}\mathbf{F} & -\mathbf{E}\mathbf{\Delta}^{-1} \\
+        -\mathbf{\Delta}^{-1}\mathbf{F} & \mathbf{\Delta}^{-1}
     \end{bmatrix} = \begin{bmatrix}
         I_m & \mathbf{0} \\
         \mathbf{0} & I_n
@@ -208,17 +208,17 @@ we need to prove that
 first, consider the left-top block:
 \[
     \begin{aligned}
-        \mathbf{A}(\mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F}) + \mathbf{D}(-\Delta^{-1}\mathbf{F}) & = AA^{-1} + AE\Delta^{-1}\mathbf{F} - \mathbf{D}\Delta^{-1}\mathbf{F} \\
-                                                     & = I_m + AE\Delta^{-1}\mathbf{F} - \mathbf{D}\Delta^{-1}\mathbf{F}
+        \mathbf{A}(\mathbf{A}^{-1}+\mathbf{E}\mathbf{\Delta}^{-1}\mathbf{F}) + \mathbf{D}(-\mathbf{\Delta}^{-1}\mathbf{F}) & = \mathbf{AA^{-1}} + \mathbf{AE}\mathbf{\Delta}^{-1}\mathbf{F} - \mathbf{D}\mathbf{\Delta}^{-1}\mathbf{F} \\
+                                                     & = \mathbf{I_m} + \mathbf{AE}\mathbf{\Delta}^{-1}\mathbf{F} - \mathbf{D}\mathbf{\Delta}^{-1}\mathbf{F}
     \end{aligned}
 \]
-since $\mathbf{E} = \mathbf{A}^{-1}\mathbf{D}$, we have $AE\Delta^{-1}\mathbf{F} = \mathbf{D}\Delta^{-1}\mathbf{F}$, thus we get $I_m$.
+since $\mathbf{E} = \mathbf{A}^{-1}\mathbf{D}$, we have $\mathbf{AE}\mathbf{\Delta}^{-1}\mathbf{F} = \mathbf{D}\mathbf{\Delta}^{-1}\mathbf{F}$, thus we get $\mathbf{I_m}$.
 
 second, consider the right-top block:
 \[
     \begin{aligned}
-        \mathbf{A}(-\mathbf{E}\Delta^{-1}) + \mathbf{D}(\Delta^{-1}) & = -AE\Delta^{-1} + \mathbf{D}\Delta^{-1} \\
-                                          & = -\mathbf{D}\Delta^{-1} + \mathbf{D}\Delta^{-1} \\
+        \mathbf{A}(-\mathbf{E}\mathbf{\Delta}^{-1}) + \mathbf{D}(\mathbf{\Delta}^{-1}) & = -\mathbf{AE}\mathbf{\Delta}^{-1} + \mathbf{D}\mathbf{\Delta}^{-1} \\
+                                          & = -\mathbf{D}\mathbf{\Delta}^{-1} + \mathbf{D}\mathbf{\Delta}^{-1} \\
                                           & = \mathbf{0}
     \end{aligned}
 \]
@@ -226,23 +226,24 @@ second, consider the right-top block:
 third, consider the left-bottom block:
 \[
     \begin{aligned}
-        \mathbf{\mathbf{C}}(\mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F}) + \mathbf{B}(-\Delta^{-1}\mathbf{F}) & = CA^{-1} + CE\Delta^{-1}\mathbf{F} - \mathbf{B}\Delta^{-1}\mathbf{F} \\
-                                                & = CA^{-1} + (CE - \mathbf{B})\Delta^{-1}\mathbf{F} \\
-                                                & = CA^{-1} + (\mathbf{B} - CA^{-1}\mathbf{D})\Delta^{-1}\mathbf{F} \\
-                                                & = CA^{-1} - \Delta \Delta^{-1} \mathbf{F} \\
-                                                & = CA^{-1} - \mathbf{F} \\
+        \mathbf{\mathbf{C}}(\mathbf{A}^{-1}+\mathbf{E}\mathbf{\Delta}^{-1}\mathbf{F}) + \mathbf{B}(-\mathbf{\Delta}^{-1}\mathbf{F}) 
+        & = \mathbf{CA}^{-1} + \mathbf{CE}\mathbf{\Delta}^{-1}\mathbf{F} - \mathbf{B}\mathbf{\Delta}^{-1}\mathbf{F} \\
+                                                & = \mathbf{CA}^{-1} + (\mathbf{CE} - \mathbf{B})\mathbf{\Delta}^{-1}\mathbf{F} \\
+                                                & = \mathbf{CA}^{-1} + (\mathbf{B} - \mathbf{CA}^{-1}\mathbf{D})\mathbf{\Delta}^{-1}\mathbf{F} \\
+                                                & = \mathbf{CA}^{-1} - \mathbf{\Delta} \mathbf{\Delta}^{-1} \mathbf{F} \\
+                                                & = \mathbf{CA}^{-1} - \mathbf{F} \\
                                                 & = \mathbf{0}
     \end{aligned}
 \]
-since $\mathbf{E} = \mathbf{A}^{-1}\mathbf{D}$, we have $CE\Delta^{-1}\mathbf{F} = \mathbf{B}\Delta^{-1}\mathbf{F}$, thus we get $\mathbf{0}$.
+since $\mathbf{E} = \mathbf{A}^{-1}\mathbf{D}$, we have $\mathbf{CE}\mathbf{\Delta}^{-1}\mathbf{F} = \mathbf{B}\mathbf{\Delta}^{-1}\mathbf{F}$, thus we get $\mathbf{0}$.
 
 fourth, consider the right-bottom block:
 \[
     \begin{aligned}
-        \mathbf{\mathbf{C}}(-\mathbf{E}\Delta^{-1}) + \mathbf{B}(\Delta^{-1}) & = -CA^{-1}\mathbf{D}\Delta^{-1} + \mathbf{B}\Delta^{-1} \\
-                                          & = (\mathbf{B} - CA^{-1}\mathbf{D})\Delta^{-1} \\
-                                          & = \Delta^{-1}\Delta \\
-                                          & = I_n
+        \mathbf{\mathbf{C}}(-\mathbf{E}\mathbf{\Delta}^{-1}) + \mathbf{B}(\mathbf{\Delta}^{-1}) & = -\mathbf{CA}^{-1}\mathbf{D}\mathbf{\Delta}^{-1} + \mathbf{B}\mathbf{\Delta}^{-1} \\
+                                          & = (\mathbf{B} - \mathbf{CA}^{-1}\mathbf{D})\mathbf{\Delta}^{-1} \\
+                                          & = \mathbf{\Delta}^{-1}\mathbf{\Delta} \\
+                                          & = \mathbf{I_n}
     \end{aligned}
 \]
 
@@ -252,8 +253,8 @@ thus we have proved that
         \mathbf{A} & \mathbf{D} \\
         \mathbf{\mathbf{C}} & \mathbf{B}
     \end{bmatrix}^{-1} = \begin{bmatrix}
-        \mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F} & -\mathbf{E}\Delta^{-1} \\
-        -\Delta^{-1}\mathbf{F} & \Delta^{-1}
+        \mathbf{A}^{-1}+\mathbf{E}\mathbf{\Delta}^{-1}\mathbf{F} & -\mathbf{E}\mathbf{\Delta}^{-1} \\
+        -\mathbf{\Delta}^{-1}\mathbf{F} & \mathbf{\Delta}^{-1}
     \end{bmatrix}
 \]
 Q.E.D.
@@ -368,6 +369,15 @@ according to Newton's second law,
         +m_3 y_3''(t) \\
     \end{aligned}
 \]
+the free-body diagram is shown in the figure below:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/image.png}
+    \caption{free-body diagram}
+    \label{fig:free-body diagram}
+\end{figure}
+
+
 let 
 $
     y(t) = 
@@ -509,17 +519,22 @@ thus, $\mathbf{A} = \begin{bmatrix}
 \end{bmatrix}$, $\mathbf{D}=\mathbf{0}$
 
 \subsection*{ii}
-$\mathbf{u(t)} = \begin{bmatrix}
+we only care $u_1(t)$ and $u_3(t)$, that is to say, we apply a linear transformation
+$L: R^2 \to R^3$ which takes $\begin{bmatrix}
+    u_1(t)\\
+    u_3(t)
+\end{bmatrix} $ as input and outputs
+$ \begin{bmatrix}
     u_1(t)\\
     0 \\
     u_3(t)
 \end{bmatrix}
-$, $\mathbf{y(t)} = \begin{bmatrix}
+$, with $\mathbf{y(t)} = \begin{bmatrix}
     y_1(t)\\
     y_2(t)\\
     y_3(t)
 \end{bmatrix}$
-, so the state-space realization is
+, the state-space realization is
 \[
     \mathbf{x'(t)} = \begin{bmatrix}
         \mathbf{0} & \mathbf{I}\\
@@ -528,49 +543,83 @@ $, $\mathbf{y(t)} = \begin{bmatrix}
     \mathbf{x(t)}+ \begin{bmatrix}
         \mathbf{0}\\
         \mathbf{I}
-    \end{bmatrix}\mathbf{u(t)}
-\]
-, and
-\[
-    \mathbf{y(t)} = \begin{bmatrix}
-        \mathbf{I} & \mathbf{0}
-    \end{bmatrix}
-    \mathbf{x(t)} + 
-        \mathbf{0}\mathbf{u(t)}
-\]
-
-\subsection*{iii}
-$\mathbf{u(t)} = \begin{bmatrix}
-    0\\
-    u_2(t) \\
-    0
-\end{bmatrix}$, $\mathbf{y(t)} = [y_3(t)]$
-, so the state-space realization is
-\[
-    \mathbf{x'(t)} = \begin{bmatrix}
-        \mathbf{0} & \mathbf{I}\\
-        \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{\mathbf{C}}}
-    \end{bmatrix}
-    \mathbf{x(t)}+ \begin{bmatrix}
-        \mathbf{0}\\
-        \mathbf{I}
-    \end{bmatrix}\mathbf{u(t)}
-\]
-, and
-\[
-    \mathbf{y(t)} = \begin{bmatrix}
-        \mathbf{I} & \mathbf{0}
     \end{bmatrix}
     \begin{bmatrix}
-        0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0
+        1 & 0 \\
+        0 & 0 \\
+        0 & 1
+    \end{bmatrix}\mathbf{u(t)}
+\]
+, and
+\[
+    \mathbf{y(t)} = \begin{bmatrix}
+        \mathbf{I} & \mathbf{0}
     \end{bmatrix}
     \mathbf{x(t)} + 
         \mathbf{0}\mathbf{u(t)}
 \]
+thus $\mathbf{A} = \begin{bmatrix}
+    \mathbf{0} & \mathbf{I}\\
+    \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{\mathbf{C}}}
+\end{bmatrix}
+$, $ \mathbf{B} = \begin{bmatrix}
+    0 & 0 \\
+    0 & 0 \\
+    1 & 0 \\
+    0 & 0 \\
+    0 & 0 \\
+    0 & 1 \\
+\end{bmatrix}$,$\mathbf{C}=\begin{bmatrix}
+    \mathbf{I} & \mathbf{0}
+\end{bmatrix}$,
+$\mathbf{D} = \mathbf{0}$
+
+\subsection*{iii}
+similar to (ii)
+, the state-space realization is
+\[
+    \mathbf{x'(t)} = \begin{bmatrix}
+        \mathbf{0} & \mathbf{I}\\
+        \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{C}}
+    \end{bmatrix}
+    \mathbf{x(t)} + \begin{bmatrix}
+        \mathbf{0}\\
+        \mathbf{I}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\
+        1 \\
+        0
+    \end{bmatrix}
+    \mathbf{u(t)}
+\]
+, and
+\[
+    \mathbf{y(t)} =
+    \begin{bmatrix}
+        0 & 0 & 1
+    \end{bmatrix}(
+    \begin{bmatrix}
+        \mathbf{I} & \mathbf{0}
+    \end{bmatrix}
+    \mathbf{x(t)} + 
+    \mathbf{0}\mathbf{u(t)})
+\]
+
+$\mathbf{A} = \begin{bmatrix}
+    \mathbf{0} & \mathbf{I}\\
+    \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{C}}
+\end{bmatrix}
+$, $ \mathbf{B} = \begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    1 \\
+    0
+\end{bmatrix}$,$\mathbf{C}=\begin{bmatrix}
+    0 & 0 & 1 & 0 & 0 & 0
+\end{bmatrix}$,
+$\mathbf{D} = \mathbf{0}$
 
 \end{document}
