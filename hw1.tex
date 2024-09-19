@@ -58,20 +58,20 @@ so the state space representation is
 
 thus
 $
-    A =
+    \mathbf{A} =
     \begin{bmatrix}
         0  & 1  \\
         -6 & -2
     \end{bmatrix},
-    B =
+    \mathbf{B} =
     \begin{bmatrix}
         0 \\
         1
     \end{bmatrix},
-    C = \begin{bmatrix}
+    \mathbf{\mathbf{C}} = \begin{bmatrix}
         1 & 0
     \end{bmatrix},
-    D =
+    \mathbf{D} =
     \begin{bmatrix}
         0
     \end{bmatrix}
@@ -115,20 +115,20 @@ and
 
 thus
 $
-    A =
+    \mathbf{A} =
     \begin{bmatrix}
         0  & 1  \\
         -6 & -2
     \end{bmatrix},
-    B =
+    \mathbf{B} =
     \begin{bmatrix}
         0 \\
         1
     \end{bmatrix},
-    C = \begin{bmatrix}
+    \mathbf{\mathbf{C}} = \begin{bmatrix}
         3 & 1
     \end{bmatrix},
-    D =
+    \mathbf{D} =
     \begin{bmatrix}
         0
     \end{bmatrix}
@@ -137,20 +137,20 @@ $
 \subsection*{Problem c}
 similar to (a), we have
 $
-A = \begin{bmatrix}
+\mathbf{A} = \begin{bmatrix}
     0  & 1 & 0  \\
     0 & 0 & 1 \\
     -6 & -8 & -4
 \end{bmatrix},
-B = \begin{bmatrix}
+\mathbf{B} = \begin{bmatrix}
     0 \\
     0 \\
     10
 \end{bmatrix},
-C = \begin{bmatrix}
+\mathbf{\mathbf{C}} = \begin{bmatrix}
     1 & 0 &0
 \end{bmatrix},
-D = \begin{bmatrix}
+\mathbf{D} = \begin{bmatrix}
     0
 \end{bmatrix}
 $
@@ -158,98 +158,102 @@ $
 \subsection*{Problem d}
 similar to (b), we have
 $
-A = \begin{bmatrix}
+\mathbf{A} = \begin{bmatrix}
     0 & 1 & 0 & 0 \\
     0 & 0 & 1 & 0 \\
     0 & 0 & 0 & 1 \\
     -66 & -44 & -11 & -10 \\
 \end{bmatrix},
-B= \begin{bmatrix}
-    0 &0 &0 &1
+\mathbf{B}= \begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+    1
 \end{bmatrix},
-C= \begin{bmatrix}
+\mathbf{\mathbf{C}}= \begin{bmatrix}
     6 & 4 & 1 & 0
 \end{bmatrix},
-D = \begin{bmatrix}
+\mathbf{D} = \begin{bmatrix}
     0
 \end{bmatrix}
 $
 
 \section{AE1.11}
 
-suppose A is an $m \times m$ matrix, B is an $n \times n$ matrix.
+suppose $\mathbf{A}$ is an $m \times m$ matrix, $\mathbf{B}$ is an $n \times n$ matrix.
 to prove
 \[
 \begin{bmatrix}
-    A & D \\
-    C & B
+    \mathbf{A} & \mathbf{D} \\
+    \mathbf{\mathbf{C}} & \mathbf{B}
 \end{bmatrix}^{-1} = \begin{bmatrix}
-    A^{-1}+E\Delta^{-1}F & -E\Delta^{-1} \\
-    -\Delta^{-1}F & \Delta^{-1}
+    \mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F} & -\mathbf{E}\Delta^{-1} \\
+    -\Delta^{-1}\mathbf{F} & \Delta^{-1}
 \end{bmatrix}
-\], we need to prove that
+\], 
+we need to prove that
 \[
     \begin{bmatrix}
-        A & D \\
-        C & B
+        \mathbf{A} & \mathbf{D} \\
+        \mathbf{\mathbf{C}} & \mathbf{B}
     \end{bmatrix} \begin{bmatrix}
-        A^{-1}+E\Delta^{-1}F & -E\Delta^{-1} \\
-        -\Delta^{-1}F & \Delta^{-1}
+        \mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F} & -\mathbf{E}\Delta^{-1} \\
+        -\Delta^{-1}\mathbf{F} & \Delta^{-1}
     \end{bmatrix} = \begin{bmatrix}
-        I_m & 0 \\
-        0 & I_n
+        I_m & \mathbf{0} \\
+        \mathbf{0} & I_n
     \end{bmatrix}
 \]
 
 first, consider the left-top block:
 \[
     \begin{aligned}
-        A(A^{-1}+E\Delta^{-1}F) + D(-\Delta^{-1}F) & = AA^{-1} + AE\Delta^{-1}F - D\Delta^{-1}F \\
-                                                     & = I_m + AE\Delta^{-1}F - D\Delta^{-1}F
+        \mathbf{A}(\mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F}) + \mathbf{D}(-\Delta^{-1}\mathbf{F}) & = AA^{-1} + AE\Delta^{-1}\mathbf{F} - \mathbf{D}\Delta^{-1}\mathbf{F} \\
+                                                     & = I_m + AE\Delta^{-1}\mathbf{F} - \mathbf{D}\Delta^{-1}\mathbf{F}
     \end{aligned}
 \]
-since $E = A^{-1}D$, we have $AE\Delta^{-1}F = D\Delta^{-1}F$, thus we get $I_m$.
+since $\mathbf{E} = \mathbf{A}^{-1}\mathbf{D}$, we have $AE\Delta^{-1}\mathbf{F} = \mathbf{D}\Delta^{-1}\mathbf{F}$, thus we get $I_m$.
 
 second, consider the right-top block:
 \[
     \begin{aligned}
-        A(-E\Delta^{-1}) + D(\Delta^{-1}) & = -AE\Delta^{-1} + D\Delta^{-1} \\
-                                          & = -D\Delta^{-1} + D\Delta^{-1} \\
-                                          & = 0
+        \mathbf{A}(-\mathbf{E}\Delta^{-1}) + \mathbf{D}(\Delta^{-1}) & = -AE\Delta^{-1} + \mathbf{D}\Delta^{-1} \\
+                                          & = -\mathbf{D}\Delta^{-1} + \mathbf{D}\Delta^{-1} \\
+                                          & = \mathbf{0}
     \end{aligned}
 \]
 
 third, consider the left-bottom block:
 \[
     \begin{aligned}
-        C(A^{-1}+E\Delta^{-1}F) + B(-\Delta^{-1}F) & = CA^{-1} + CE\Delta^{-1}F - B\Delta^{-1}F \\
-                                                & = CA^{-1} + (CE - B)\Delta^{-1}F \\
-                                                & = CA^{-1} + (B - CA^{-1}D)\Delta^{-1}F \\
-                                                & = CA^{-1} - \Delta \Delta^{-1} F \\
-                                                & = CA^{-1} - F \\
-                                                & = 0
+        \mathbf{\mathbf{C}}(\mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F}) + \mathbf{B}(-\Delta^{-1}\mathbf{F}) & = CA^{-1} + CE\Delta^{-1}\mathbf{F} - \mathbf{B}\Delta^{-1}\mathbf{F} \\
+                                                & = CA^{-1} + (CE - \mathbf{B})\Delta^{-1}\mathbf{F} \\
+                                                & = CA^{-1} + (\mathbf{B} - CA^{-1}\mathbf{D})\Delta^{-1}\mathbf{F} \\
+                                                & = CA^{-1} - \Delta \Delta^{-1} \mathbf{F} \\
+                                                & = CA^{-1} - \mathbf{F} \\
+                                                & = \mathbf{0}
     \end{aligned}
 \]
-since $E = A^{-1}D$, we have $CE\Delta^{-1}F = B\Delta^{-1}F$, thus we get $0$.
+since $\mathbf{E} = \mathbf{A}^{-1}\mathbf{D}$, we have $CE\Delta^{-1}\mathbf{F} = \mathbf{B}\Delta^{-1}\mathbf{F}$, thus we get $\mathbf{0}$.
 
 fourth, consider the right-bottom block:
 \[
     \begin{aligned}
-        C(-E\Delta^{-1}) + B(\Delta^{-1}) & = -CA^{-1}D\Delta^{-1} + B\Delta^{-1} \\
-                                          & = (B - CA^{-1}D)\Delta^{-1} \\
+        \mathbf{\mathbf{C}}(-\mathbf{E}\Delta^{-1}) + \mathbf{B}(\Delta^{-1}) & = -CA^{-1}\mathbf{D}\Delta^{-1} + \mathbf{B}\Delta^{-1} \\
+                                          & = (\mathbf{B} - CA^{-1}\mathbf{D})\Delta^{-1} \\
                                           & = \Delta^{-1}\Delta \\
-                                        & = I_n
+                                          & = I_n
     \end{aligned}
 \]
 
 thus we have proved that
 \[
     \begin{bmatrix}
-        A & D \\
-        C & B
+        \mathbf{A} & \mathbf{D} \\
+        \mathbf{\mathbf{C}} & \mathbf{B}
     \end{bmatrix}^{-1} = \begin{bmatrix}
-        A^{-1}+E\Delta^{-1}F & -E\Delta^{-1} \\
-        -\Delta^{-1}F & \Delta^{-1}
+        \mathbf{A}^{-1}+\mathbf{E}\Delta^{-1}\mathbf{F} & -\mathbf{E}\Delta^{-1} \\
+        -\Delta^{-1}\mathbf{F} & \Delta^{-1}
     \end{bmatrix}
 \]
 Q.E.D.
@@ -420,253 +424,153 @@ $,
     \end{split}
 \end{equation}
 
+thus 
+$\mathbf{M} = \begin{bmatrix}
+    m_1 & 0   & 0   \\
+    0   & m_2 & 0   \\
+    0   & 0   & m_3
+\end{bmatrix},
+\mathbf{\mathbf{C}} = \begin{bmatrix}
+    c_1+c_2         & -c_2             & 0              \\
+    -c_2            & c_2+c_3         & -c_3       \\
+    0               & -c_3           & c_3+c_4
+\end{bmatrix}$
+and
+
+$
+\mathbf{K} = \begin{bmatrix}
+    k_1+k_2         & -k_2             & 0              \\
+    -k_2            & k_2+k_3         & -k_3       \\
+    0               & -k_3           & k_3+k_4
+\end{bmatrix}
+$
+
 \subsection*{Problem b}
-\subsection*{i}
 let
 \[
     \begin{aligned}
         x_1(t) &= y_1(t) \\
-        x_2(t) &= y_1'(t) \\
-        x_3(t) &= y_1''(t) \\
-        x_4(t) &= y_2(t) \\
+        x_2(t) &= y_2(t) \\
+        x_3(t) &= y_3(t) \\
+        x_4(t) &= y_1'(t) \\
         x_5(t) &= y_2'(t) \\
-        x_6(t) &= y_2''(t) \\
-        x_7(t) &= y_3(t) \\
-        x_8(t) &= y_3'(t) \\
-        x_9(t) &= y_3''(t) \\
+        x_6(t) &= y_3'(t)
     \end{aligned}
 \]
+\subsection*{i}
 
-$u(t) = \begin{bmatrix}
+$\mathbf{u(t)} = \begin{bmatrix}
     u_1(t)\\
     u_2(t) \\
     u_3(t)
 \end{bmatrix}
-$, $y(t) = \begin{bmatrix}
+$, $\mathbf{y(t)} = \begin{bmatrix}
     y_1(t)\\
     y_2(t)\\
     y_3(t)
 \end{bmatrix}
+$, $\mathbf{x(t)} = \begin{bmatrix}
+    x_1(t)\\
+    x_2(t)\\
+    x_3(t)\\
+    x_4(t)\\
+    x_5(t)\\
+    x_6(t)
+\end{bmatrix}
 $
 , so the state-space realization is
+
 \[
-    \begin{aligned}
-        \begin{bmatrix}
-            x_1'(t) \\
-            x_2'(t) \\
-            x_3'(t) \\
-            x_4'(t) \\
-            x_5'(t) \\
-            x_6'(t) \\
-            x_7'(t) \\
-            x_8'(t) \\
-            x_9'(t) \\
-        \end{bmatrix} & = \begin{bmatrix}
-                            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                        \end{bmatrix} \begin{bmatrix}
-                                        x_1(t) \\
-                                        x_2(t) \\
-                                        x_3(t) \\
-                                        x_4(t) \\
-                                        x_5(t) \\
-                                        x_6(t) \\
-                                        x_7(t) \\
-                                        x_8(t) \\
-                                        x_9(t) \\
-                                    \end{bmatrix} + \begin{bmatrix}
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    1 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 1 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 1 \\
-                                                \end{bmatrix} \begin{bmatrix}
-                                                                u_1(t) \\
-                                                                u_2(t) \\
-                                                                u_3(t)
-                                                            \end{bmatrix} \\
-        \begin{bmatrix}
-            y_1(t) \\
-            y_2(t) \\
-            y_3(t)
-        \end{bmatrix} & = \begin{bmatrix}
-                            1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-                        \end{bmatrix} \begin{bmatrix}
-                                        x_1(t) \\
-                                        x_2(t) \\
-                                        x_3(t) \\
-                                        x_4(t) \\
-                                        x_5(t) \\
-                                        x_6(t) \\
-                                        x_7(t) \\
-                                        x_8(t) \\
-                                        x_9(t) \\
-                                    \end{bmatrix}
-    \end{aligned}
+    \mathbf{x'(t)} = \begin{bmatrix}
+        \mathbf{0} & \mathbf{I}\\
+        \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{\mathbf{C}}}
+    \end{bmatrix}
+    \mathbf{x(t)}+ \begin{bmatrix}
+        \mathbf{0}\\
+        \mathbf{I}
+    \end{bmatrix}\mathbf{u(t)}
+\], and
+\[
+    \mathbf{y(t)} = \begin{bmatrix}
+        \mathbf{I} & \mathbf{0}
+    \end{bmatrix}
+    \mathbf{x(t)} + 
+        \mathbf{0}\mathbf{u(t)}
 \]
 
+thus, $\mathbf{A} = \begin{bmatrix}
+    \mathbf{0} & \mathbf{I}\\
+    \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{\mathbf{C}}}
+\end{bmatrix}$, $\mathbf{B} = \begin{bmatrix}
+    \mathbf{0}\\
+    \mathbf{I}
+\end{bmatrix}$, $\mathbf{\mathbf{C}}=\begin{bmatrix}
+    \mathbf{I} & \mathbf{0}
+\end{bmatrix}$, $\mathbf{D}=\mathbf{0}$
+
 \subsection*{ii}
-$u(t) = \begin{bmatrix}
+$\mathbf{u(t)} = \begin{bmatrix}
     u_1(t)\\
     0 \\
     u_3(t)
 \end{bmatrix}
-$, $y(t) = \begin{bmatrix}
+$, $\mathbf{y(t)} = \begin{bmatrix}
     y_1(t)\\
     y_2(t)\\
     y_3(t)
-\end{bmatrix}
-$
+\end{bmatrix}$
 , so the state-space realization is
 \[
-    \begin{aligned}
-        \begin{bmatrix}
-            x_1'(t) \\
-            x_2'(t) \\
-            x_3'(t) \\
-            x_4'(t) \\
-            x_5'(t) \\
-            x_6'(t) \\
-            x_7'(t) \\
-            x_8'(t) \\
-            x_9'(t) \\
-        \end{bmatrix} & = \begin{bmatrix}
-                            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                        \end{bmatrix} \begin{bmatrix}
-                                        x_1(t) \\
-                                        x_2(t) \\
-                                        x_3(t) \\
-                                        x_4(t) \\
-                                        x_5(t) \\
-                                        x_6(t) \\
-                                        x_7(t) \\
-                                        x_8(t) \\
-                                        x_9(t) \\
-                                    \end{bmatrix} + \begin{bmatrix}
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    1 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 1 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 1 \\
-                                                \end{bmatrix} \begin{bmatrix}
-                                                                u_1(t) \\
-                                                                0 \\
-                                                                u_3(t)
-                                                            \end{bmatrix} \\
-        \begin{bmatrix}
-            y_1(t) \\
-            y_2(t) \\
-            y_3(t)
-        \end{bmatrix} & = \begin{bmatrix}
-                            1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-                        \end{bmatrix} \begin{bmatrix}
-                                        x_1(t) \\
-                                        x_2(t) \\
-                                        x_3(t) \\
-                                        x_4(t) \\
-                                        x_5(t) \\
-                                        x_6(t) \\
-                                        x_7(t) \\
-                                        x_8(t) \\
-                                        x_9(t) \\
-                                    \end{bmatrix}
-    \end{aligned}
+    \mathbf{x'(t)} = \begin{bmatrix}
+        \mathbf{0} & \mathbf{I}\\
+        \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{\mathbf{C}}}
+    \end{bmatrix}
+    \mathbf{x(t)}+ \begin{bmatrix}
+        \mathbf{0}\\
+        \mathbf{I}
+    \end{bmatrix}\mathbf{u(t)}
+\]
+, and
+\[
+    \mathbf{y(t)} = \begin{bmatrix}
+        \mathbf{I} & \mathbf{0}
+    \end{bmatrix}
+    \mathbf{x(t)} + 
+        \mathbf{0}\mathbf{u(t)}
 \]
 
 \subsection*{iii}
-$u(t) = u_2(t)$, $y(t) = y_3(t)$
+$\mathbf{u(t)} = \begin{bmatrix}
+    0\\
+    u_2(t) \\
+    0
+\end{bmatrix}$, $\mathbf{y(t)} = [y_3(t)]$
 , so the state-space realization is
-
 \[
-    \begin{aligned}
-        \begin{bmatrix}
-            x_1'(t) \\
-            x_2'(t) \\
-            x_3'(t) \\
-            x_4'(t) \\
-            x_5'(t) \\
-            x_6'(t) \\
-            x_7'(t) \\
-            x_8'(t) \\
-            x_9'(t) \\
-        \end{bmatrix} & = \begin{bmatrix}
-                            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-                        \end{bmatrix} \begin{bmatrix}
-                                        x_1(t) \\
-                                        x_2(t) \\
-                                        x_3(t) \\
-                                        x_4(t) \\
-                                        x_5(t) \\
-                                        x_6(t) \\
-                                        x_7(t) \\
-                                        x_8(t) \\
-                                        x_9(t) \\
-                                    \end{bmatrix} + \begin{bmatrix}
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    1 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 1 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 0 \\
-                                                    0 & 0 & 1 \\
-                                                \end{bmatrix} \begin{bmatrix}
-                                                                0 \\
-                                                                u_2(t) \\
-                                                                0
-                                                            \end{bmatrix} \\
-        y_3(t) & = \begin{bmatrix}
-                            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0
-                        \end{bmatrix} 
-                                    \begin{bmatrix}
-                                        x_1(t) \\
-                                        x_2(t) \\
-                                        x_3(t) \\
-                                        x_4(t) \\
-                                        x_5(t) \\
-                                        x_6(t) \\
-                                        x_7(t) \\
-                                        x_8(t) \\
-                                        x_9(t) \\
-                                    \end{bmatrix}
-    \end{aligned}
+    \mathbf{x'(t)} = \begin{bmatrix}
+        \mathbf{0} & \mathbf{I}\\
+        \mathbf{-\mathbf{M}^{-1}\mathbf{K}} & \mathbf{-\mathbf{M}^{-1}\mathbf{\mathbf{C}}}
+    \end{bmatrix}
+    \mathbf{x(t)}+ \begin{bmatrix}
+        \mathbf{0}\\
+        \mathbf{I}
+    \end{bmatrix}\mathbf{u(t)}
 \]
-
+, and
+\[
+    \mathbf{y(t)} = \begin{bmatrix}
+        \mathbf{I} & \mathbf{0}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+    \mathbf{x(t)} + 
+        \mathbf{0}\mathbf{u(t)}
+\]
 
 \end{document}
