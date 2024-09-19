@@ -16,7 +16,7 @@
 \maketitle
 
 \section{NE1.1}
-\subsection{Problem a}
+\subsection*{Problem a}
 
 \[G(s) = \frac{1}{s^2+2s+6}\]
 
@@ -77,7 +77,7 @@ $
     \end{bmatrix}
 $
 
-\subsection{Problem b}
+\subsection*{Problem b}
 let $G_1(s)=\frac{1}{s^2+2s+6}=\frac{W(s)}{U(s)}$, $G_2(s)=s+3=\frac{Y(s)}{W(s)}$, then
 \[G(s)  = G_1(s)G_2(s) \]
 ODE:
@@ -134,7 +134,7 @@ $
     \end{bmatrix}
 $
 
-\subsection{Problem c}
+\subsection*{Problem c}
 similar to (a), we have
 $
 A = \begin{bmatrix}
@@ -155,7 +155,7 @@ D = \begin{bmatrix}
 \end{bmatrix}
 $
 
-\subsection{Problem d}
+\subsection*{Problem d}
 similar to (b), we have
 $
 A = \begin{bmatrix}
@@ -342,7 +342,7 @@ so the overal transfer function is
 \]
 
 \section{CE1.1}
-\subsection{Problem a}
+\subsection*{Problem a}
 set the positive direction to be "right",
 according to Newton's second law,
 % \[ 
@@ -354,13 +354,13 @@ according to Newton's second law,
 \[
     \begin{aligned}
         u_1(t) &= k_1 y_1(t)+k_2(y_1(t)-y_2(t))
-        +c_1 y_1'(t)+c_2(y_1(t)-y_2(t))
+        +c_1 y_1'(t)+c_2(y_1'(t)-y_2'(t))
         +m_1 y_1''(t) \\
         u_2(t) &= k_2(y_2(t)-y_1(t))+k_3(y_2(t)-y_3(t))
-        +c_2(y_2'(t)-y_1'(t))+c_2(y_2'(t)-y_3'(t))
+        +c_2(y_2'(t)-y_1'(t))+c_3(y_2'(t)-y_3'(t))
         +m_2 y_2''(t) \\
-        u_3(t) &= k_3(y_3(t)-y_2(t))+k_4(y_3(t)-y_4(t))
-        +c_3(y_3'(t)-y_2'(t))+c_4(y_4'(t))
+        u_3(t) &= k_3(y_3(t)-y_2(t))+k_4 y_3(t)
+        +c_3(y_3'(t)-y_2'(t))+c_4 y_3'(t)
         +m_3 y_3''(t) \\
     \end{aligned}
 \]
@@ -372,22 +372,17 @@ $
         y_2(t) \\
         y_3(t)
     \end{bmatrix},
-    y'(t) = 
+    u(t) =
     \begin{bmatrix}
-        y_1'(t) \\
-        y_2'(t) \\
-        y_3'(t)
-    \end{bmatrix},
-    y''(t) = 
-    \begin{bmatrix}
-        y_1''(t) \\
-        y_2''(t) \\
-        y_3''(t)
+        u_1(t) \\
+        u_2(t) \\
+        u_3(t)
     \end{bmatrix}
 $, 
  the matrix-vector form is 
-\[
-    \begin{bmatrix}
+ \begin{equation}
+    \begin{split}
+    &\begin{bmatrix}
         m_1 & 0   & 0   \\
         0   & m_2 & 0   \\
         0   & 0   & m_3
@@ -396,32 +391,282 @@ $,
         y_1''(t) \\
         y_2''(t) \\
         y_3''(t)
-    \end{bmatrix} +
-    \begin{bmatrix}
-        c_1+c_2+k_1+k_2 & -c_2-k_2       & 0              \\
-        -c_2-k_2        & c_2+c_3+k_2+k_3 & -c_3-k_3       \\
-        0               & -c_3-k_3        & c_3+c_4+k_3+k_4
+    \end{bmatrix} + \\
+    &\begin{bmatrix}
+        c_1+c_2         & -c_2             & 0              \\
+        -c_2            & c_2+c_3         & -c_3       \\
+        0               & -c_3           & c_3+c_4
     \end{bmatrix}
     \begin{bmatrix}
         y_1'(t) \\
         y_2'(t) \\
         y_3'(t)
-    \end{bmatrix} +
-    \begin{bmatrix}
-        k_1 & -k_2 & 0   \\
-        -k_2 & k_2+k_3 & -k_3 \\
-        0   & -k_3 & k_3+k_4
+    \end{bmatrix} + \\
+    &\begin{bmatrix}
+        k_1+k_2         & -k_2             & 0              \\
+        -k_2            & k_2+k_3         & -k_3       \\
+        0               & -k_3           & k_3+k_4
     \end{bmatrix}
     \begin{bmatrix}
         y_1(t) \\
         y_2(t) \\
         y_3(t)
-    \end{bmatrix} =
-    \begin{bmatrix}
+    \end{bmatrix} = \\
+    &\begin{bmatrix}
         u_1(t) \\
         u_2(t) \\
         u_3(t)
     \end{bmatrix}
+    \end{split}
+\end{equation}
+
+\subsection*{Problem b}
+\subsection*{i}
+let
+\[
+    \begin{aligned}
+        x_1(t) &= y_1(t) \\
+        x_2(t) &= y_1'(t) \\
+        x_3(t) &= y_1''(t) \\
+        x_4(t) &= y_2(t) \\
+        x_5(t) &= y_2'(t) \\
+        x_6(t) &= y_2''(t) \\
+        x_7(t) &= y_3(t) \\
+        x_8(t) &= y_3'(t) \\
+        x_9(t) &= y_3''(t) \\
+    \end{aligned}
 \]
+
+$u(t) = \begin{bmatrix}
+    u_1(t)\\
+    u_2(t) \\
+    u_3(t)
+\end{bmatrix}
+$, $y(t) = \begin{bmatrix}
+    y_1(t)\\
+    y_2(t)\\
+    y_3(t)
+\end{bmatrix}
+$
+, so the state-space realization is
+\[
+    \begin{aligned}
+        \begin{bmatrix}
+            x_1'(t) \\
+            x_2'(t) \\
+            x_3'(t) \\
+            x_4'(t) \\
+            x_5'(t) \\
+            x_6'(t) \\
+            x_7'(t) \\
+            x_8'(t) \\
+            x_9'(t) \\
+        \end{bmatrix} & = \begin{bmatrix}
+                            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        \end{bmatrix} \begin{bmatrix}
+                                        x_1(t) \\
+                                        x_2(t) \\
+                                        x_3(t) \\
+                                        x_4(t) \\
+                                        x_5(t) \\
+                                        x_6(t) \\
+                                        x_7(t) \\
+                                        x_8(t) \\
+                                        x_9(t) \\
+                                    \end{bmatrix} + \begin{bmatrix}
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    1 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 1 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 1 \\
+                                                \end{bmatrix} \begin{bmatrix}
+                                                                u_1(t) \\
+                                                                u_2(t) \\
+                                                                u_3(t)
+                                                            \end{bmatrix} \\
+        \begin{bmatrix}
+            y_1(t) \\
+            y_2(t) \\
+            y_3(t)
+        \end{bmatrix} & = \begin{bmatrix}
+                            1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+                        \end{bmatrix} \begin{bmatrix}
+                                        x_1(t) \\
+                                        x_2(t) \\
+                                        x_3(t) \\
+                                        x_4(t) \\
+                                        x_5(t) \\
+                                        x_6(t) \\
+                                        x_7(t) \\
+                                        x_8(t) \\
+                                        x_9(t) \\
+                                    \end{bmatrix}
+    \end{aligned}
+\]
+
+\subsection*{ii}
+$u(t) = \begin{bmatrix}
+    u_1(t)\\
+    0 \\
+    u_3(t)
+\end{bmatrix}
+$, $y(t) = \begin{bmatrix}
+    y_1(t)\\
+    y_2(t)\\
+    y_3(t)
+\end{bmatrix}
+$
+, so the state-space realization is
+\[
+    \begin{aligned}
+        \begin{bmatrix}
+            x_1'(t) \\
+            x_2'(t) \\
+            x_3'(t) \\
+            x_4'(t) \\
+            x_5'(t) \\
+            x_6'(t) \\
+            x_7'(t) \\
+            x_8'(t) \\
+            x_9'(t) \\
+        \end{bmatrix} & = \begin{bmatrix}
+                            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        \end{bmatrix} \begin{bmatrix}
+                                        x_1(t) \\
+                                        x_2(t) \\
+                                        x_3(t) \\
+                                        x_4(t) \\
+                                        x_5(t) \\
+                                        x_6(t) \\
+                                        x_7(t) \\
+                                        x_8(t) \\
+                                        x_9(t) \\
+                                    \end{bmatrix} + \begin{bmatrix}
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    1 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 1 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 1 \\
+                                                \end{bmatrix} \begin{bmatrix}
+                                                                u_1(t) \\
+                                                                0 \\
+                                                                u_3(t)
+                                                            \end{bmatrix} \\
+        \begin{bmatrix}
+            y_1(t) \\
+            y_2(t) \\
+            y_3(t)
+        \end{bmatrix} & = \begin{bmatrix}
+                            1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+                        \end{bmatrix} \begin{bmatrix}
+                                        x_1(t) \\
+                                        x_2(t) \\
+                                        x_3(t) \\
+                                        x_4(t) \\
+                                        x_5(t) \\
+                                        x_6(t) \\
+                                        x_7(t) \\
+                                        x_8(t) \\
+                                        x_9(t) \\
+                                    \end{bmatrix}
+    \end{aligned}
+\]
+
+\subsection*{iii}
+$u(t) = u_2(t)$, $y(t) = y_3(t)$
+, so the state-space realization is
+
+\[
+    \begin{aligned}
+        \begin{bmatrix}
+            x_1'(t) \\
+            x_2'(t) \\
+            x_3'(t) \\
+            x_4'(t) \\
+            x_5'(t) \\
+            x_6'(t) \\
+            x_7'(t) \\
+            x_8'(t) \\
+            x_9'(t) \\
+        \end{bmatrix} & = \begin{bmatrix}
+                            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        \end{bmatrix} \begin{bmatrix}
+                                        x_1(t) \\
+                                        x_2(t) \\
+                                        x_3(t) \\
+                                        x_4(t) \\
+                                        x_5(t) \\
+                                        x_6(t) \\
+                                        x_7(t) \\
+                                        x_8(t) \\
+                                        x_9(t) \\
+                                    \end{bmatrix} + \begin{bmatrix}
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    1 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 1 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 0 \\
+                                                    0 & 0 & 1 \\
+                                                \end{bmatrix} \begin{bmatrix}
+                                                                0 \\
+                                                                u_2(t) \\
+                                                                0
+                                                            \end{bmatrix} \\
+        y_3(t) & = \begin{bmatrix}
+                            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0
+                        \end{bmatrix} 
+                                    \begin{bmatrix}
+                                        x_1(t) \\
+                                        x_2(t) \\
+                                        x_3(t) \\
+                                        x_4(t) \\
+                                        x_5(t) \\
+                                        x_6(t) \\
+                                        x_7(t) \\
+                                        x_8(t) \\
+                                        x_9(t) \\
+                                    \end{bmatrix}
+    \end{aligned}
+\]
+
 
 \end{document}
